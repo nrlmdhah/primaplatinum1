@@ -1,0 +1,441 @@
+/* General Setup */
+:root {
+    --orange: #f15a24;
+    --navy: #1a237e;
+    --dark: #222;
+    --light: #f9f9f9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Century Gothic', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 80px 0; }
+.text-center { text-align: center; }
+
+/* Header & Nav */
+header { background: var(--orange); position: sticky; top: 0; z-index: 1000; }
+.flex-nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+
+/* Align Logo and Text */
+.logo {
+    display: flex;
+    align-items: center; /* Centers image and text vertically */
+    text-decoration: none;
+    color: white;
+}
+
+/* Control the Size of the Header Logo */
+.nav-logo {
+    height: 50px; /* Adjust this so it fits nicely in your 80px header */
+    width: auto;
+    margin-right: 15px; /* Gap between image and "Prima Platinum" text */
+    object-fit: contain;
+}
+
+/* Style the text next to the logo */
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile Tweak: Make logo smaller on small phones */
+@media screen and (max-width: 480px) {
+    .nav-logo {
+        height: 35px;
+    }
+    .logo span {
+        font-size: 1.1rem;
+    }
+}
+
+.nav-list { display: flex; list-style: none; align-items: center; }
+.nav-list li a { color: white; text-decoration: none; padding: 0 15px; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+.nav-list li a:hover { opacity: 0.7; }
+.nav-icons { color: white; padding-left: 20px; font-size: 1.1rem; }
+.nav-icons i { margin-left: 15px; cursor: pointer; }
+
+/* The Benten Title Style */
+.title-benten {
+    text-align: center;
+    font-size: 2.5rem; /* Large and bold */
+    color: var(--navy); 
+    text-transform: uppercase; /* Force uppercase like the image */
+    font-weight: 800;
+    position: relative;
+     margin-bottom: 20px !important; /* Reduced from 40px to 20px */
+    padding-bottom: 15px;           /* Adjusts space between text and orange line */
+}
+
+
+/* Special case: If the background is Navy Blue (as you requested before) 
+   the text needs to be White to be visible */
+#accreditation .title-benten {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .title-benten {
+        font-size: 1.8rem; /* Slightly smaller on mobile */
+    }
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+.menu-toggle span { height: 3px; width: 25px; background: white; margin: 2px 0; }
+
+/* Hero Section */
+.hero { 
+    height: 100vh; 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/kk');
+    background-size: cover;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white; position: relative;
+}
+.hero-content h1 { font-size: 4rem; margin-bottom: 20px; }
+.hero-content p { max-width: 700px; margin: 0 auto 20px; }
+.btn { padding: 12px 30px; text-decoration: none; color: white; font-weight: bold; display: inline-block; margin: 0 10px; transition: 0.3s; }
+.btn-orange { background: var(--orange); }
+.btn-navy { background: var(--navy); }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+/* About Section with Frame */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.title-decor { font-size: 2.5rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+.title-decor::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 4px; background: var(--orange); }
+.read-more { background: var(--orange); color: white; padding: 10px 25px; text-decoration: none; display: inline-block; margin-top: 20px; }
+
+.about-img-container { position: relative; padding: 20px; }
+.about-img-container img { width: 100%; border-radius: 4px; }
+
+/* Banner Section */
+.banner-video { background: url('images/guard2.png') center/cover fixed; padding: 100px 0; text-align: center; color: white; }
+.banner-overlay { background: rgba(26, 35, 126, 0.7); padding: 50px 0; }
+.play-btn { width: 80px; height: 80px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 30px auto; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.play-btn:hover { background: var(--orange); border-color: var(--orange); }
+
+/* Grid Container */
+/* --- CONTAINER TUNING --- */
+/* We make the container wider (1300px) so 5 boxes look "Medium" instead of "Small" */
+.container-wide {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- TITLE ADJUSTMENT --- */
+.title-benten {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--navy);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 5px !important; /* MINIMAL GAP TO BOXES */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.title-benten::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--orange);
+}
+
+/* --- SERVICES GRID --- */
+/* --- LAYOUT CONFIGURATION --- */
+.container-wide {
+    max-width: 1350px; /* Wider container so 5 boxes look "Medium" */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- TITLE & SUBTITLE (TIGHT SPACING) --- */
+.title-benten {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--navy);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 5px !important; /* Minimal gap */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.title-benten::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--orange);
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 5px;      /* Pulls closer to title */
+    margin-bottom: 25px;  /* Space before cards */
+}
+
+/* --- UPDATED SERVICES GRID --- */
+.services-grid {
+    display: flex;         /* Changed from grid to flex */
+    flex-wrap: wrap;       /* Allows items to move to the next row */
+    justify-content: center; /* THIS CENTERS THE 2 BOXES ON THE BOTTOM ROW */
+    gap: 20px;             /* Space between boxes */
+    margin-top: 15px !important;
+}
+
+.service-box {
+    position: relative;
+    /* To get 3 boxes per row, we set width to approx 31% */
+    width: calc(33.33% - 20px); 
+    aspect-ratio: 16 / 9; 
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- KEEP THE REST OF YOUR BEAUTIFUL STYLING --- */
+
+.service-box .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
+    transition: 0.4s ease;
+    z-index: 1;
+}
+
+.service-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+.service-content h3 {
+    font-size: 1.1rem; /* Increased slightly since boxes are bigger now */
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.service-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.service-box:hover {
+    transform: translateY(-12px) scale(1.02); /* Added slight scale for "Pop" */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-box:hover .overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(26, 35, 126, 0.4) 100%);
+}
+
+/* --- UPDATED MOBILE RESPONSIVENESS --- */
+
+/* Tablets: 2 boxes per row */
+@media (max-width: 992px) {
+    .service-box {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Small Phones: 1 box per row */
+@media (max-width: 600px) {
+    .service-box {
+        width: 100%;
+    }
+    .title-benten {
+        font-size: 1.8rem;
+    }
+}
+
+/* Accreditation */
+/* Background helper for the section */
+.bg-light { background-color: #000f63; }
+
+/* Accreditation Grid */
+
+#accreditation h2, 
+#accreditation .subtitle {
+    color: #ffffff; 
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.cert-card:hover {
+    border-bottom: 3px solid var(--orange);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Logo Container Styling */
+.cert-img-box {
+    width: 100%;
+    height: 100px; /* Fixed height for all logo areas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cert-img-box img {
+    max-width: 120px; /* Limits width */
+    max-height: 80px; /* Limits height */
+    object-fit: contain; /* Prevents stretching */
+    filter: grayscale(80%); /* Logos start as gray for a clean look */
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effect: Logo turns to full color and scales up */
+.cert-card:hover .cert-img-box img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Maintain the Benten card look */
+.cert-card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.4s ease;
+     box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+}
+
+.cert-card:hover {
+    border-bottom: 3px solid var(--orange);
+    transform: translateY(-5px);
+}
+
+.cert-card h4 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-top: 10px;
+}
+
+/* Subtitle styling for section headers */
+.subtitle {
+    max-width: 600px;
+    margin: 10px auto 0;
+    color: #fffffffd;
+}
+
+/* Mobile Tweak for Certifications */
+@media screen and (max-width: 600px) {
+    .cert-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on small mobile */
+    }
+}
+
+/* Contact Section Wrapper */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Info Details Side */
+.contact-details {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.c-icon {
+    color: var(--orange);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.c-text h4 {
+    color: var(--navy);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.c-text p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Map Side */
+.contact-map {
+    width: 100%;
+    min-height: 400px;
+    background: #eee;
+}
+
+/* MOBILE RESPONSIVE TWEAKS */
+@media screen and (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Stack map under info on mobile */
+    }
+    
+    .contact-details {
+        padding: 25px;
+        grid-template-columns: 1fr; /* Stack info items in 1 column */
+    }
+    
+    .contact-map {
+        height: 300px; /* Shorter map for mobile screens */
+    }
+}
+
+/* Footer */
+footer { background: var(--dark); color: #ffffff; padding: 20px 0 0; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 10px; }
+
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 992px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .nav-list { position: absolute; top: 80px; left: -100%; flex-direction: column; background: var(--orange); width: 100%; transition: 0.4s; padding: 30px 0; }
+    .nav-list.active { left: 0; }
+    .nav-list li { margin: 15px 0; }
+    .menu-toggle { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-text { text-align: center; }
+    .title-decor::after { left: 50%; transform: translateX(-50%); }
+}
